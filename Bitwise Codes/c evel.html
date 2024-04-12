@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancient Rome Programming Journey</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f6e7cd; /* Ancient parchment background */
+            color: #543d33; /* Dark brown text */
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #a07c5e; /* Ancient Rome brick color */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .road-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 80vh;
+            overflow-x: auto;
+            padding: 20px;
+        }
+
+        .road {
+            position: relative;
+            height: 20px;
+            width: 100%;
+            background-color: #d3b092; /* Ancient road color */
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        .point {
+            position: absolute;
+            background-color: #7b5e3b; /* Ancient marker color */
+            border: 2px solid #fff;
+            border-radius: 50%;
+            height: 30px;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2;
+            animation: pulse 1.5s infinite;
+            transition: background-color 0.3s;
+        }
+
+        .point:hover {
+            background-color: #543d33; /* Darker marker color on hover */
+        }
+
+        .point.beginner {
+            left: 10%;
+        }
+
+        .point.intermediate {
+            left: 50%;
+        }
+
+        .point.advanced {
+            left: 90%;
+        }
+
+        .description {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #7b5e3b; /* Ancient button color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #543d33; /* Darker button color on hover */
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Ancient Rome Programming Journey</h1>
+</header>
+
+<div class="road-container">
+    <div class="road"></div>
+    <a href="file:///C:/Users/Yathin.G/Desktop/WTP/WT%20New%20project/try2c.html" class="point beginner">I</a>
+    <a href="http://localhost/hello/payment.html" class="point intermediate">II</a>
+    <div class="point advanced">III</div>
+</div>
+
+<div class="description">
+    <p>Click on each point to learn more about the corresponding level.</p>
+</div>
+
+<button onclick="changeColor('beginner')">Change Beginner Color</button>
+<button onclick="changeColor('intermediate')">Change Intermediate Color</button>
+<button onclick="changeColor('advanced')">Change Advanced Color</button>
+
+<script>
+    function changeColor(level) {
+        const point = document.querySelector(`.point.${level}`);
+        if (point) {
+            point.style.backgroundColor = getRandomColor();
+        }
+    }
+
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+</script>
+
+</body>
+</html>

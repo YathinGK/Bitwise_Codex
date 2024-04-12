@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose a Programming Language</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: linear-gradient(to bottom right, #4CAF50, #2196F3);
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="radio"] {
+            display: none;
+        }
+        label {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+        label:hover {
+            background-color: #ccc;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        #result {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <h1>Choose a Programming Language</h1><br><br>
+    <form id="languageForm">
+        <input type="radio" id="python" name="language" value="Python">
+        <label for="python"><a href="file:///C:/Users/Yathin.G/Desktop/WTP/WT%20New%20project/level%20python.html">Python</a></label>
+
+        <input type="radio" id="javascript" name="language" value="JavaScript">
+        <label for="javascript"><a href="file:///C:/Users/Yathin.G/Desktop/WTP/WT%20New%20project/Level%20try.html">Java</a></label>
+
+        <input type="radio" id="java" name="language" value="Java">
+        <label for="java"><a href="file:///C:/Users/Yathin.G/Desktop/WTP/WT%20New%20project/c%20evel.html">C</a></label><br><br>
+
+    
+    </form>
+    <p id="result"></p>
+</div>
+
+<script>
+    document.getElementById("languageForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var selectedLanguage = document.querySelector('input[name="language"]:checked');
+        if (selectedLanguage) {
+            document.getElementById("result").innerText = "You chose " + selectedLanguage.value + "!";
+        } else {
+            document.getElementById("result").innerText = "Please select a language.";
+        }
+    });
+</script>
+
+</body>
+</html>

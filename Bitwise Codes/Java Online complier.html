@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitWise Codex</title>
+    <style>
+        body {
+            font-family: 'Papyrus', 'Palatino Linotype', serif;
+            margin: 20px;
+            background-color: #f4d9b6;
+            background-image: url('parchment.jpg'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        h1 {
+            text-align: center;
+            color: #5e4b35;
+            text-shadow: 2px 2px 2px #dab18c;
+        }
+        label {
+            color: #5e4b35;
+        }
+        #editor {
+            height: 300px;
+            background-color: #000000;
+            border: 1px solid #000000;
+        }
+        button {
+            background-color: #5e4b35;
+            color: #f4d9b6;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #6b4d37;
+        }
+        #hint {
+            background-color: #6b4d37;
+            color: #f4d9b6;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #hint:hover {
+            background-color: #543b26;
+        }
+        #output {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #c0ab8e;
+            background-color: #d7bea8;
+            color: #5e4b35;
+        }
+    </style>
+</head>
+<body>
+
+<h1>BitWise Codex</h1>
+
+<label for="code">Write a Java Program to print Hello World</label>
+<div id="editor"></div>
+
+<button onclick="compileCode()">Invoke & Execute</button>
+
+<button id="hint" onclick="displayHint()">Mystical Hint</button>
+
+<div id="output"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/java");
+
+    function compileCode() {
+        var code = editor.getValue();
+        var outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = "";
+
+        try {
+            // Simulate compilation and execution (replace this with a server-side solution)
+            var result = "Mystical Output:\n";
+            result += "Greetings, O Mystic World!\n";  // Replace this with actual compilation and execution logic
+
+            outputDiv.innerText = result;
+        } catch (error) {
+            outputDiv.innerText = "Incantation Error: " + error.message;
+        }
+    }
+
+    function displayHint() {
+        var outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = "Mystical Hint: The secret incantation begins with 'public class MysticSpell {'";
+    }
+</script>
+
+</body>
+</html>
